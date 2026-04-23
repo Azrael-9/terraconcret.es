@@ -27,6 +27,8 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -34,15 +36,26 @@ body {
   background: var(--negro);
   color: var(--blanco);
   line-height: 1.6;
+  width: 100%;
+  min-height: 100vh;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  display: block;
+  width: 100%;
 }
 
 img, svg {
   max-width: 100%;
   display: block;
   height: auto;
+}
+
+img {
+  object-fit: cover;
 }
 
 a {
@@ -63,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-size: clamp(1.8rem, 5vw, 4rem);
   font-weight: 900;
   letter-spacing: -0.02em;
 }
@@ -239,9 +252,23 @@ input, textarea, select {
 }
 
 @media (max-width: 768px) {
-  .section { padding: 4rem 0; }
-  .container { padding: 0 1.25rem; }
-  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .section { padding: 2.5rem 0; }
+  .container { padding: 0 1rem; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  p { font-size: 0.95rem; }
+  .btn { padding: 0.85rem 1.5rem; font-size: 0.9rem; }
+  .btn-lg { padding: 1rem 1.75rem; font-size: 0.95rem; }
+  .section-title { margin-bottom: 2rem; }
+  .section-subtitle { font-size: 0.95rem; margin-top: 1rem; }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 2.25rem 0; }
+  .container { padding: 0 1rem; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; gap: 1.25rem; }
+  h1 { font-size: clamp(1.65rem, 7vw, 2.2rem); }
+  h2 { font-size: clamp(1.4rem, 6vw, 1.9rem); }
+  p { font-size: 0.9rem; }
 }
 
 ::selection {
